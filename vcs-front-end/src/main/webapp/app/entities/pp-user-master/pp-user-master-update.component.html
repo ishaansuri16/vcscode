@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pp-user-master-heading">Create or edit a Pp User Master</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!ppUserMaster.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="ppUserMaster.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="ppUserMaster.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="ppUserMaster.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" id="field_mobile"
+                        [(ngModel)]="ppUserMaster.mobile" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pricePointValue">Price Point Value</label>
+                    <input type="number" class="form-control" name="pricePointValue" id="field_pricePointValue"
+                        [(ngModel)]="ppUserMaster.pricePointValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param1">Param 1</label>
+                    <input type="text" class="form-control" name="param1" id="field_param1"
+                        [(ngModel)]="ppUserMaster.param1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param2">Param 2</label>
+                    <input type="text" class="form-control" name="param2" id="field_param2"
+                        [(ngModel)]="ppUserMaster.param2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param3">Param 3</label>
+                    <input type="text" class="form-control" name="param3" id="field_param3"
+                        [(ngModel)]="ppUserMaster.param3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_created">Created</label>
+                    <div class="d-flex">
+                        <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="created"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedon">Modifiedon</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedon" type="datetime-local" class="form-control" name="modifiedon" [(ngModel)]="modifiedon"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

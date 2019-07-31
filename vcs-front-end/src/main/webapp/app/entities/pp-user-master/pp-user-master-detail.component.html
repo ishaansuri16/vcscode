@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ppUserMaster">
+            <h2><span>Pp User Master</span> {{ppUserMaster.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.name}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.email}}</span>
+                </dd>
+                <dt><span>Mobile</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.mobile}}</span>
+                </dd>
+                <dt><span>Price Point Value</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.pricePointValue}}</span>
+                </dd>
+                <dt><span>Param 1</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.param1}}</span>
+                </dd>
+                <dt><span>Param 2</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.param2}}</span>
+                </dd>
+                <dt><span>Param 3</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.param3}}</span>
+                </dd>
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.created}}</span>
+                </dd>
+                <dt><span>Modifiedon</span></dt>
+                <dd>
+                    <span>{{ppUserMaster.modifiedon}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                    [routerLink]="['/pp-user-master', ppUserMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

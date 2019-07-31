@@ -1,0 +1,96 @@
+<div>
+    <!-- <h2 id="page-heading">
+        <span>Wallet Txn History</span>
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-wallet-history" [routerLink]="['/wallet-history/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create 
+            </span>
+        </button>
+    </h2> -->
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="walletHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderId"><span>Order Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span>User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastUpdatedPlaypoint"><span>Last Updated Playpoint</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pricePointValue"><span>Price Point Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionType"><span>Transaction Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="source"><span>Source</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userAction"><span>User Action</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param1"><span>Param 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param2"><span>Param 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param3"><span>Param 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="created"><span>Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modifiedon"><span>Modifiedon</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="params"><span>Params</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionStatus"><span>Transaction Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionDate"><span>Transaction Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="walletId"><span>Wallet Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mid"><span>Mid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let walletHistory of walletHistories ;trackBy: trackId">
+                <td><a [routerLink]="['/wallet-history', walletHistory.id, 'view' ]">{{walletHistory.id}}</a></td>
+                <td>{{walletHistory.orderId}}</td>
+                <td>{{walletHistory.userId}}</td>
+                <td>{{walletHistory.lastUpdatedPlaypoint}}</td>
+                <td>{{walletHistory.pricePointValue}}</td>
+                <td>{{walletHistory.transactionType}}</td>
+                <td>{{walletHistory.description}}</td>
+                <td>{{walletHistory.source}}</td>
+                <td>{{walletHistory.userAction}}</td>
+                <td>{{walletHistory.param1}}</td>
+                <td>{{walletHistory.param2}}</td>
+                <td>{{walletHistory.param3}}</td>
+                <td>{{walletHistory.created | date:'medium'}}</td>
+                <td>{{walletHistory.modifiedon | date:'medium'}}</td>
+                <td>{{walletHistory.params}}</td>
+                <td>{{walletHistory.transactionStatus}}</td>
+                <td>{{walletHistory.transactionDate | date:'medium'}}</td>
+                <td>{{walletHistory.walletId}}</td>
+                <td>{{walletHistory.mid}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/wallet-history', walletHistory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <!-- <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                [routerLink]="['/wallet-history', walletHistory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button> -->
+                        <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                [routerLink]="['/', { outlets: { popup: 'wallet-history/'+ walletHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="walletHistories && walletHistories.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+{
+    "name": "Wallet",
+    "fields": [
+        {
+            "fieldName": "mid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "walletId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "walletCategory",
+            "fieldType": "WalletCategory",
+            "fieldValues": "PROMOTION,LOYALITY,ADVERTISEMENT"
+        },
+        {
+            "fieldName": "walletSubcategory",
+            "fieldType": "WalletSubcategory",
+            "fieldValues": "PROMOTION1,PROMOTION2,PROMOTION3"
+        },
+        {
+            "fieldName": "walletType",
+            "fieldType": "WalletType",
+            "fieldValues": "REVENUE,ESCROW,BUDGET"
+        },
+        {
+            "fieldName": "isShow",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isActive",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "approved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "approvedOn",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "pricePointValue",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "totalPricePointValue",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "amountAlertThreshold",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "amountAlertThreshholdtype",
+            "fieldType": "AmountAlertThreshholdtype",
+            "fieldValues": "FLAT,PERCENTAGE"
+        },
+        {
+            "fieldName": "maxDebitPerRequest",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "param1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifiedon",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180910092912",
+    "entityTableName": "wallet",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

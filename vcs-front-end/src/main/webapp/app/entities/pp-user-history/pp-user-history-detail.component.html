@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ppUserHistory">
+            <h2><span>Pp User History</span> {{ppUserHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>User Id</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.userId}}</span>
+                </dd>
+                <dt><span>Last Updated Playpoint</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.lastUpdatedPlaypoint}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.description}}</span>
+                </dd>
+                <dt><span>Transaction Type</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.transactionType}}</span>
+                </dd>
+                <dt><span>Price Point Value</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.pricePointValue}}</span>
+                </dd>
+                <dt><span>Source</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.source}}</span>
+                </dd>
+                <dt><span>Transaction Status</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.transactionStatus}}</span>
+                </dd>
+                <dt><span>Transaction Date</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.transactionDate}}</span>
+                </dd>
+                <dt><span>Order Id</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.orderId}}</span>
+                </dd>
+                <dt><span>User Action</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.userAction}}</span>
+                </dd>
+                <dt><span>Product Id</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.productId}}</span>
+                </dd>
+                <dt><span>Product Type</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.productType}}</span>
+                </dd>
+                <dt><span>Produc Detail</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.producDetail}}</span>
+                </dd>
+                <dt><span>Wallet Id</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.walletId}}</span>
+                </dd>
+                <dt><span>Mid</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.mid}}</span>
+                </dd>
+                <dt><span>Param 1</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.param1}}</span>
+                </dd>
+                <dt><span>Param 2</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.param2}}</span>
+                </dd>
+                <dt><span>Param 3</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.param3}}</span>
+                </dd>
+                <dt><span>Params</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.params}}</span>
+                </dd>
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.created}}</span>
+                </dd>
+                <dt><span>Modifiedon</span></dt>
+                <dd>
+                    <span>{{ppUserHistory.modifiedon}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+           <!--  <button type="button" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                    [routerLink]="['/pp-user-history', ppUserHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button> -->
+        </div>
+    </div>
+</div>

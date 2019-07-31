@@ -1,0 +1,90 @@
+{
+    "name": "WalletHistory",
+    "fields": [
+        {
+            "fieldName": "orderId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastUpdatedPlaypoint",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pricePointValue",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "CREDIT,DEBIT"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "source",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userAction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifiedon",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transactionStatus",
+            "fieldType": "TransactionStatus",
+            "fieldValues": "SUCCESS,FAIL"
+        },
+        {
+            "fieldName": "transactionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "walletId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mid",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180910092913",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "wallet_history",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

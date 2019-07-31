@@ -1,0 +1,114 @@
+<div>
+<!--     <h2 id="page-heading">
+        <span>User Txn History</span>
+        <button id="jh-create-entity" *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-pp-user-history" [routerLink]="['/pp-user-history/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create
+            </span>
+        </button>
+    </h2> -->
+    <jhi-alert></jhi-alert>
+    <div class="searchPanel">
+        <label class="form-control-label">Search By</label>
+        <select class="form-control" (change)="assignProperty($event)">
+            <option [selected]="p===prop" [value]="">--Select Property--</option>
+            <option *ngFor="let p of properties" [value]="p">
+                {{p}}
+            </option>
+        </select>
+        <label class="form-control-label">To Search</label>
+        <input type="text" class="form-control" [(ngModel)]="matchString" (keyup)="onKey($event)"/>
+        <button type="button" class="btn btn-primary search-btn" (click)=search()><span>Search</span></button>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ppUserHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span>User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastUpdatedPlaypoint"><span>Last Updated Playpoint</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionType"><span>Transaction Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pricePointValue"><span>Price Point Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="source"><span>Source</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionStatus"><span>Transaction Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transactionDate"><span>Transaction Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderId"><span>Order Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userAction"><span>User Action</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productId"><span>Product Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productType"><span>Product Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="producDetail"><span>Produc Detail</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="walletId"><span>Wallet Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mid"><span>Mid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param1"><span>Param 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param2"><span>Param 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="param3"><span>Param 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="params"><span>Params</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="created"><span>Created</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="modifiedon"><span>Modifiedon</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ppUserHistory of ppUserHistories ;trackBy: trackId">
+                <td><a [routerLink]="['/pp-user-history', ppUserHistory.id, 'view' ]">{{ppUserHistory.id}}</a></td>
+                <td>{{ppUserHistory.userId}}</td>
+                <td>{{ppUserHistory.lastUpdatedPlaypoint}}</td>
+                <td>{{ppUserHistory.description}}</td>
+                <td>{{ppUserHistory.transactionType}}</td>
+                <td>{{ppUserHistory.pricePointValue}}</td>
+                <td>{{ppUserHistory.source}}</td>
+                <td>{{ppUserHistory.transactionStatus}}</td>
+                <td>{{ppUserHistory.transactionDate | date:'medium'}}</td>
+                <td>{{ppUserHistory.orderId}}</td>
+                <td>{{ppUserHistory.userAction}}</td>
+                <td>{{ppUserHistory.productId}}</td>
+                <td>{{ppUserHistory.productType}}</td>
+                <td>{{ppUserHistory.producDetail}}</td>
+                <td>{{ppUserHistory.walletId}}</td>
+                <td>{{ppUserHistory.mid}}</td>
+                <td>{{ppUserHistory.param1}}</td>
+                <td>{{ppUserHistory.param2}}</td>
+                <td>{{ppUserHistory.param3}}</td>
+                <td>{{ppUserHistory.params}}</td>
+                <td>{{ppUserHistory.created | date:'medium'}}</td>
+                <td>{{ppUserHistory.modifiedon | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/pp-user-history', ppUserHistory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <!-- <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                [routerLink]="['/pp-user-history', ppUserHistory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button> -->
+                        <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                [routerLink]="['/', { outlets: { popup: 'pp-user-history/'+ ppUserHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="ppUserHistories && ppUserHistories.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

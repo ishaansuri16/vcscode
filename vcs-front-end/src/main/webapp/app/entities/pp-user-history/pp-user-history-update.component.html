@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pp-user-history-heading">Create or edit a Pp User History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!ppUserHistory.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="ppUserHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userId">User Id</label>
+                    <input type="text" class="form-control" name="userId" id="field_userId"
+                        [(ngModel)]="ppUserHistory.userId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastUpdatedPlaypoint">Last Updated Playpoint</label>
+                    <input type="number" class="form-control" name="lastUpdatedPlaypoint" id="field_lastUpdatedPlaypoint"
+                        [(ngModel)]="ppUserHistory.lastUpdatedPlaypoint" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="ppUserHistory.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transactionType">Transaction Type</label>
+                    <select class="form-control" name="transactionType" [(ngModel)]="ppUserHistory.transactionType" id="field_transactionType" >
+                        <option value="CREDIT">CREDIT</option>
+                        <option value="DEBIT">DEBIT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pricePointValue">Price Point Value</label>
+                    <input type="number" class="form-control" name="pricePointValue" id="field_pricePointValue"
+                        [(ngModel)]="ppUserHistory.pricePointValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_source">Source</label>
+                    <input type="text" class="form-control" name="source" id="field_source"
+                        [(ngModel)]="ppUserHistory.source" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transactionStatus">Transaction Status</label>
+                    <select class="form-control" name="transactionStatus" [(ngModel)]="ppUserHistory.transactionStatus" id="field_transactionStatus" >
+                        <option value="SUCCESS">SUCCESS</option>
+                        <option value="FAIL">FAIL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_transactionDate">Transaction Date</label>
+                    <div class="d-flex">
+                        <input id="field_transactionDate" type="datetime-local" class="form-control" name="transactionDate" [(ngModel)]="transactionDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_orderId">Order Id</label>
+                    <input type="text" class="form-control" name="orderId" id="field_orderId"
+                        [(ngModel)]="ppUserHistory.orderId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userAction">User Action</label>
+                    <input type="text" class="form-control" name="userAction" id="field_userAction"
+                        [(ngModel)]="ppUserHistory.userAction" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                        [(ngModel)]="ppUserHistory.productId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_productType">Product Type</label>
+                    <input type="text" class="form-control" name="productType" id="field_productType"
+                        [(ngModel)]="ppUserHistory.productType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_producDetail">Produc Detail</label>
+                    <input type="text" class="form-control" name="producDetail" id="field_producDetail"
+                        [(ngModel)]="ppUserHistory.producDetail" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_walletId">Wallet Id</label>
+                    <input type="text" class="form-control" name="walletId" id="field_walletId"
+                        [(ngModel)]="ppUserHistory.walletId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mid">Mid</label>
+                    <input type="text" class="form-control" name="mid" id="field_mid"
+                        [(ngModel)]="ppUserHistory.mid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param1">Param 1</label>
+                    <input type="text" class="form-control" name="param1" id="field_param1"
+                        [(ngModel)]="ppUserHistory.param1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param2">Param 2</label>
+                    <input type="text" class="form-control" name="param2" id="field_param2"
+                        [(ngModel)]="ppUserHistory.param2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param3">Param 3</label>
+                    <input type="text" class="form-control" name="param3" id="field_param3"
+                        [(ngModel)]="ppUserHistory.param3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_params">Params</label>
+                    <input type="text" class="form-control" name="params" id="field_params"
+                        [(ngModel)]="ppUserHistory.params" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_created">Created</label>
+                    <div class="d-flex">
+                        <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="created"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedon">Modifiedon</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedon" type="datetime-local" class="form-control" name="modifiedon" [(ngModel)]="modifiedon"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

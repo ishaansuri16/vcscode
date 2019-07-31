@@ -1,0 +1,141 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-wallet-heading">Create or edit a Wallet</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!wallet.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="wallet.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mid">Mid</label>
+                    <input type="text" class="form-control" name="mid" id="field_mid"
+                        [(ngModel)]="wallet.mid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_walletId">Wallet Id</label>
+                    <input type="text" class="form-control" name="walletId" id="field_walletId"
+                        [(ngModel)]="wallet.walletId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_walletCategory">Wallet Category</label>
+                    <select class="form-control" name="walletCategory" [(ngModel)]="wallet.walletCategory" id="field_walletCategory" >
+                        <option value="PROMOTION">PROMOTION</option>
+                        <option value="LOYALITY">LOYALITY</option>
+                        <option value="ADVERTISEMENT">ADVERTISEMENT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_walletSubcategory">Wallet Subcategory</label>
+                    <select class="form-control" name="walletSubcategory" [(ngModel)]="wallet.walletSubcategory" id="field_walletSubcategory" >
+                        <option value="PROMOTION1">PROMOTION1</option>
+                        <option value="PROMOTION2">PROMOTION2</option>
+                        <option value="PROMOTION3">PROMOTION3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_walletType">Wallet Type</label>
+                    <select class="form-control" name="walletType" [(ngModel)]="wallet.walletType" id="field_walletType" >
+                        <option value="REVENUE">REVENUE</option>
+                        <option value="ESCROW">ESCROW</option>
+                        <option value="BUDGET">BUDGET</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isShow">Is Show</label>
+                    <input type="checkbox" class="form-control" name="isShow" id="field_isShow"
+                        [(ngModel)]="wallet.isShow" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                        [(ngModel)]="wallet.isActive" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_approved">Approved</label>
+                    <input type="checkbox" class="form-control" name="approved" id="field_approved"
+                        [(ngModel)]="wallet.approved" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_approvedOn">Approved On</label>
+                    <div class="d-flex">
+                        <input id="field_approvedOn" type="datetime-local" class="form-control" name="approvedOn" [(ngModel)]="approvedOn"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pricePointValue">Price Point Value</label>
+                    <input type="number" class="form-control" name="pricePointValue" id="field_pricePointValue"
+                        [(ngModel)]="wallet.pricePointValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalPricePointValue">Total Price Point Value</label>
+                    <input type="number" class="form-control" name="totalPricePointValue" id="field_totalPricePointValue"
+                        [(ngModel)]="wallet.totalPricePointValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amountAlertThreshold">Amount Alert Threshold</label>
+                    <input type="number" class="form-control" name="amountAlertThreshold" id="field_amountAlertThreshold"
+                        [(ngModel)]="wallet.amountAlertThreshold" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amountAlertThreshholdtype">Amount Alert Threshholdtype</label>
+                    <select class="form-control" name="amountAlertThreshholdtype" [(ngModel)]="wallet.amountAlertThreshholdtype" id="field_amountAlertThreshholdtype" >
+                        <option value="FLAT">FLAT</option>
+                        <option value="PERCENTAGE">PERCENTAGE</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_maxDebitPerRequest">Max Debit Per Request</label>
+                    <input type="number" class="form-control" name="maxDebitPerRequest" id="field_maxDebitPerRequest"
+                        [(ngModel)]="wallet.maxDebitPerRequest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param1">Param 1</label>
+                    <input type="text" class="form-control" name="param1" id="field_param1"
+                        [(ngModel)]="wallet.param1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param2">Param 2</label>
+                    <input type="text" class="form-control" name="param2" id="field_param2"
+                        [(ngModel)]="wallet.param2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param3">Param 3</label>
+                    <input type="text" class="form-control" name="param3" id="field_param3"
+                        [(ngModel)]="wallet.param3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_params">Params</label>
+                    <input type="text" class="form-control" name="params" id="field_params"
+                        [(ngModel)]="wallet.params" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_created">Created</label>
+                    <div class="d-flex">
+                        <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="created"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedon">Modifiedon</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedon" type="datetime-local" class="form-control" name="modifiedon" [(ngModel)]="modifiedon"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

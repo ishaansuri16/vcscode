@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-merchant-heading">Create or edit a Merchant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!merchant.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="merchant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="merchant.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_displayName">Display Name</label>
+                    <input type="text" class="form-control" name="displayName" id="field_displayName"
+                        [(ngModel)]="merchant.displayName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="merchant.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mid">Mid</label>
+                    <input type="text" class="form-control" name="mid" id="field_mid"
+                        [(ngModel)]="merchant.mid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_params">Params</label>
+                    <input type="text" class="form-control" name="params" id="field_params"
+                        [(ngModel)]="merchant.params" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param1">Param 1</label>
+                    <input type="text" class="form-control" name="param1" id="field_param1"
+                        [(ngModel)]="merchant.param1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param2">Param 2</label>
+                    <input type="text" class="form-control" name="param2" id="field_param2"
+                        [(ngModel)]="merchant.param2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_param3">Param 3</label>
+                    <input type="text" class="form-control" name="param3" id="field_param3"
+                        [(ngModel)]="merchant.param3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_midSecret">Mid Secret</label>
+                    <input type="text" class="form-control" name="midSecret" id="field_midSecret"
+                        [(ngModel)]="merchant.midSecret"/>
+                </div>
+                <div class="form-group" [hidden]="!merchant.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="merchant.id" readonly />
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                        [(ngModel)]="merchant.createdBy" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_created">Created</label>
+                    <div class="d-flex">
+                        <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="created"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifiedon">Modifiedon</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedon" type="datetime-local" class="form-control" name="modifiedon" [(ngModel)]="modifiedon"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pincode">Pincode</label>
+                    <input type="text" class="form-control" name="pincode" id="field_pincode"
+                        [(ngModel)]="merchant.pincode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="merchant.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isenabled">Isenabled</label>
+                    <input type="checkbox" class="form-control" name="isenabled" id="field_isenabled"
+                        [(ngModel)]="merchant.isenabled" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

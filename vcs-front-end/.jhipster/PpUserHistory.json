@@ -1,0 +1,101 @@
+{
+    "name": "PpUserHistory",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastUpdatedPlaypoint",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transactionType",
+            "fieldType": "TransactionType",
+            "fieldValues": "CREDIT,DEBIT"
+        },
+        {
+            "fieldName": "pricePointValue",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "source",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transactionStatus",
+            "fieldType": "TransactionStatus",
+            "fieldValues": "SUCCESS,FAIL"
+        },
+        {
+            "fieldName": "transactionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "orderId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userAction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "producDetail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "walletId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifiedon",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180910092910",
+    "entityTableName": "pp_user_history",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

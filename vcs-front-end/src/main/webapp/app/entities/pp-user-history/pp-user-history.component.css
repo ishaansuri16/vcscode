@@ -1,0 +1,16 @@
+.searchPanel{
+	display: flex;
+    float: right;
+    width: 77%;
+    margin-bottom: 1.5%;
+}
+
+.form-control-label{
+	margin-left: 2%;
+    width: 24%;
+    line-height: 2;
+}
+
+.search-btn{
+	margin-left: 1%;
+}

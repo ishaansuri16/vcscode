@@ -1,0 +1,52 @@
+{
+    "name": "PpUserMaster",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pricePointValue",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "param1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "param3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifiedon",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180910092911",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "pp_user_master",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

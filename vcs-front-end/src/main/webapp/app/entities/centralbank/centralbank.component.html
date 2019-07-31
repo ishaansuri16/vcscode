@@ -1,0 +1,107 @@
+<div class="container">
+        <h2>CentralBank</h2>
+
+	<div class="card mb-1">
+		<div class="card-body">
+		<span>Add Points to other merchant</span>
+			<form name="editForm" role="form"
+				novalidate (ngSubmit)="addVirtualCurrencyToMerchant()"
+				#editForm="ngForm">
+		<div class="row">
+		  <div class="col-sm-4">				
+		  <select name="destinationmid"
+					[(ngModel)]="addVCMaster.destinationmid" class="form-control" required>
+					<option selected="selected">Select Merchant...</option>
+					<option [ngValue]="merchant" *ngFor="let merchant of merchantList">{{merchant.name}}</option>
+				</select>
+			</div>
+		  <div class="col-sm-4">
+		  <input type="number" class="form-control" name="amount" [(ngModel)]="addVCMaster.amount" required/>
+			</div>
+		  <div class="col-sm-4">	<button type="submit" id="save-entity"
+					[disabled]="editForm.form.invalid"
+					class="btn btn-primary">
+					<fa-icon></fa-icon>
+					&nbsp;<span>Add</span>
+				</button></div>
+		</div>
+		
+ 
+			
+			</form>
+		</div>
+	</div>
+
+	<table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wallet Category</td>
+              <td>{{wallet.walletCategory}}</td>
+            </tr>
+            <tr>
+              <td>Wallet Subcategory</td>
+              <td>{{wallet.walletSubcategory}}</td>
+            </tr>
+            <tr>
+              <td>Wallet Type</td>
+              <td>{{wallet.walletType}}</td>
+            </tr>
+            <tr>
+              <td>Is Active</td>
+              <td>{{wallet.isActive}}</td>
+            </tr>
+        
+             <tr>
+              <td>Wallet Type</td>
+              <td>{{wallet.walletType}}</td>
+            </tr>  
+            <tr>
+                    <td>Price Point Value</td>
+                    <td>{{wallet.pricePointValue}}</td>
+                    </tr>
+                    <tr>
+                    <td>Total Price Point Value</td>
+                    <td>{{wallet.totalPricePointValue}}</td>
+                    </tr>
+                    <tr>
+                    <td>Amount Alert Threshold</td>
+                    <td>{{wallet.amountAlertThreshold}}</td>
+                    </tr>
+                    <tr>
+                    <td>Amount Alert Threshholdtype</td>
+                    <td>{{wallet.amountAlertThreshholdtype}}</td>
+                    </tr>
+                    <tr>
+                    <td>Max Debit Per Request</td>
+                    <td>{{wallet.maxDebitPerRequest}}</td>
+                    </tr>
+
+          </tbody>
+        </table>
+        <button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+</button>
+
+<button type="button"
+        [routerLink]="['/wallet', wallet.id, 'edit']"
+        class="btn btn-primary">
+    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+</button>
+
+
+
+
+
+
+      </div>
+
+
+

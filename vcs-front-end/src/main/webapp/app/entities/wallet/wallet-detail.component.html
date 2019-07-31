@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="wallet">
+            <h2><span>Wallet</span> {{wallet.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Mid</span></dt>
+                <dd>
+                    <span>{{wallet.mid}}</span>
+                </dd>
+                <dt><span>Wallet Id</span></dt>
+                <dd>
+                    <span>{{wallet.walletId}}</span>
+                </dd>
+                <dt><span>Wallet Category</span></dt>
+                <dd>
+                    <span>{{wallet.walletCategory}}</span>
+                </dd>
+                <dt><span>Wallet Subcategory</span></dt>
+                <dd>
+                    <span>{{wallet.walletSubcategory}}</span>
+                </dd>
+                <dt><span>Wallet Type</span></dt>
+                <dd>
+                    <span>{{wallet.walletType}}</span>
+                </dd>
+                <dt><span>Is Show</span></dt>
+                <dd>
+                    <span>{{wallet.isShow}}</span>
+                </dd>
+                <dt><span>Is Active</span></dt>
+                <dd>
+                    <span>{{wallet.isActive}}</span>
+                </dd>
+                <dt><span>Approved</span></dt>
+                <dd>
+                    <span>{{wallet.approved}}</span>
+                </dd>
+                <dt><span>Approved On</span></dt>
+                <dd>
+                    <span>{{wallet.approvedOn}}</span>
+                </dd>
+                <dt><span>Price Point Value</span></dt>
+                <dd>
+                    <span>{{wallet.pricePointValue}}</span>
+                </dd>
+                <dt><span>Total Price Point Value</span></dt>
+                <dd>
+                    <span>{{wallet.totalPricePointValue}}</span>
+                </dd>
+                <dt><span>Amount Alert Threshold</span></dt>
+                <dd>
+                    <span>{{wallet.amountAlertThreshold}}</span>
+                </dd>
+                <dt><span>Amount Alert Threshholdtype</span></dt>
+                <dd>
+                    <span>{{wallet.amountAlertThreshholdtype}}</span>
+                </dd>
+                <dt><span>Max Debit Per Request</span></dt>
+                <dd>
+                    <span>{{wallet.maxDebitPerRequest}}</span>
+                </dd>
+                <dt><span>Param 1</span></dt>
+                <dd>
+                    <span>{{wallet.param1}}</span>
+                </dd>
+                <dt><span>Param 2</span></dt>
+                <dd>
+                    <span>{{wallet.param2}}</span>
+                </dd>
+                <dt><span>Param 3</span></dt>
+                <dd>
+                    <span>{{wallet.param3}}</span>
+                </dd>
+                <dt><span>Params</span></dt>
+                <dd>
+                    <span>{{wallet.params}}</span>
+                </dd>
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{wallet.created}}</span>
+                </dd>
+                <dt><span>Modifiedon</span></dt>
+                <dd>
+                    <span>{{wallet.modifiedon}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                    [routerLink]="['/wallet', wallet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

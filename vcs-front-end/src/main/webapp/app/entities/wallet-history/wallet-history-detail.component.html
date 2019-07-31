@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="walletHistory">
+            <h2><span>Wallet History</span> {{walletHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Order Id</span></dt>
+                <dd>
+                    <span>{{walletHistory.orderId}}</span>
+                </dd>
+                <dt><span>User Id</span></dt>
+                <dd>
+                    <span>{{walletHistory.userId}}</span>
+                </dd>
+                <dt><span>Last Updated Playpoint</span></dt>
+                <dd>
+                    <span>{{walletHistory.lastUpdatedPlaypoint}}</span>
+                </dd>
+                <dt><span>Price Point Value</span></dt>
+                <dd>
+                    <span>{{walletHistory.pricePointValue}}</span>
+                </dd>
+                <dt><span>Transaction Type</span></dt>
+                <dd>
+                    <span>{{walletHistory.transactionType}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{walletHistory.description}}</span>
+                </dd>
+                <dt><span>Source</span></dt>
+                <dd>
+                    <span>{{walletHistory.source}}</span>
+                </dd>
+                <dt><span>User Action</span></dt>
+                <dd>
+                    <span>{{walletHistory.userAction}}</span>
+                </dd>
+                <dt><span>Param 1</span></dt>
+                <dd>
+                    <span>{{walletHistory.param1}}</span>
+                </dd>
+                <dt><span>Param 2</span></dt>
+                <dd>
+                    <span>{{walletHistory.param2}}</span>
+                </dd>
+                <dt><span>Param 3</span></dt>
+                <dd>
+                    <span>{{walletHistory.param3}}</span>
+                </dd>
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{walletHistory.created}}</span>
+                </dd>
+                <dt><span>Modifiedon</span></dt>
+                <dd>
+                    <span>{{walletHistory.modifiedon}}</span>
+                </dd>
+                <dt><span>Params</span></dt>
+                <dd>
+                    <span>{{walletHistory.params}}</span>
+                </dd>
+                <dt><span>Transaction Status</span></dt>
+                <dd>
+                    <span>{{walletHistory.transactionStatus}}</span>
+                </dd>
+                <dt><span>Transaction Date</span></dt>
+                <dd>
+                    <span>{{walletHistory.transactionDate}}</span>
+                </dd>
+                <dt><span>Wallet Id</span></dt>
+                <dd>
+                    <span>{{walletHistory.walletId}}</span>
+                </dd>
+                <dt><span>Mid</span></dt>
+                <dd>
+                    <span>{{walletHistory.mid}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <!-- <button type="button" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                    [routerLink]="['/wallet-history', walletHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button> -->
+        </div>
+    </div>
+</div>
